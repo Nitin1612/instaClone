@@ -1,5 +1,5 @@
 export const user = [
-    {id: 1, name: 'Neymar', img: require('../assets/users/neymar.png')},
+    {id: 1, name: 'Your Story', img: require('../assets/users/user.webp')},
     {id: 2, name: 'ViratKholi', img: require('../assets/users/virat.png.jpg')},
     {id: 3, name: 'TeslaMotors', img: require('../assets/users/tesla.png')},
     {id: 4, name: 'ElonMusk', img: require('../assets/users/elon.webp')},  
