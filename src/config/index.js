@@ -6,6 +6,7 @@ export default {
         homeIcon : require('../../assets/home.png'),
         searchIcon : require('../../assets/search.png'),
         reelsIcon : require('../../assets/reels.png'),
-        profileIcon : require('../../assets/profile.png')
+        profileIcon : require('../../assets/profile.png'),
+        messageIcon : require('../../assets/message.png')
     }
 }

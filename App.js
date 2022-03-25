@@ -16,11 +16,8 @@ import PushNotification from "react-native-push-notification";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
 import config from "./src/config/index";
+
 Icon.loadFont();
-
-
-
-
 
 const App = () => {
   const MainBottomTab = createBottomTabNavigator();
@@ -28,7 +25,7 @@ const App = () => {
   const createChannel = () => {
     PushNotification.createChannel(
       {
-        channelId: "test-channel",
+        channelId: "test-channel2",
         channelName: "Test Channel"
       }
     )
