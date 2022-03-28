@@ -13,20 +13,21 @@ class InstaStory extends Component {
 }
 const styles = StyleSheet.create({
   container: {
-    width:85,
-    padding:5
+    width: 85,
+    padding: 5,
+    backgroundColor: "#fff"
   },
   img: {
-    height:70,
-        width:70,
-        borderRadius:50,
-        borderColor:"red"
+    height: 70,
+    width: 70,
+    borderRadius: 50,
+    borderColor: "red"
   },
   title: {
-    textAlign:"center",
-    fontSize:12,
-    textTransform:'lowercase',
-    marginTop:5
+    textAlign: "center",
+    fontSize: 12,
+    textTransform: 'lowercase',
+    marginTop: 5
   },
 });
 

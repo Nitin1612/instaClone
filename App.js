@@ -15,7 +15,7 @@ import linking from './src/linking';
 import PushNotification from "react-native-push-notification";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
-import config from "./src/config/index";
+import config from "./src/config/icon";
 
 Icon.loadFont();
 
@@ -36,41 +36,41 @@ const App = () => {
   return (
     <View style={styles.container}>
       <NavigationContainer linking={linking}>
-        <MainBottomTab.Navigator 
-        initialRouteName="InstaClone"
-        screenOptions={{tabBarActiveTintColor: '#e91e63'}}
-        tabBarOptions={{
-          activeTintColor: '#212121',
-          inactiveTintColor: 'grey',
-          showLabel: true,
-          style: {
-            backgroundColor: "#fff",
-          },
-        }}>
-          
+        <MainBottomTab.Navigator
+          initialRouteName="InstaClone"
+          screenOptions={{ tabBarActiveTintColor: '#e91e63' }}
+          tabBarOptions={{
+            activeTintColor: '#212121',
+            inactiveTintColor: 'grey',
+            showLabel: true,
+            style: {
+              backgroundColor: "#fff",
+            },
+          }}>
+
           <MainBottomTab.Screen
             name="InstaClone"
             component={InstaClone}
             options={{
-              tabBarIcon: ({ color, size }) => (
+              tabBarIcon: () => (
                 <Image
-                        style={[styles.icon, { height: 33, width: 35 }]}
-                        source={config.images.homeIcon} />
+                  style={[styles.icon, { height: 33, width: 35 }]}
+                  source={config.images.homeIcon} />
               ),
-              
+
             }}
-            
+
           />
           <MainBottomTab.Screen
             name="SearchScreen"
             component={SearchScreen}
             options={{
-              tabBarIcon: ({ color, size }) => (
+              tabBarIcon: () => (
                 <Image
-                        style={[styles.icon, { height: 33, width: 35 }]}
-                        source={config.images.searchIcon} />
+                  style={[styles.icon, { height: 33, width: 35 }]}
+                  source={config.images.searchIcon} />
               ),
-              
+
             }}
           />
           <MainBottomTab.Screen
@@ -79,22 +79,22 @@ const App = () => {
             options={{
               tabBarIcon: ({ color, size }) => (
                 <Image
-                        style={[styles.icon, { height: 33, width: 35 }]}
-                        source={config.images.reelsIcon} />
+                  style={[styles.icon, { height: 33, width: 35 }]}
+                  source={config.images.reelsIcon} />
               ),
-              
+
             }}
           />
           <MainBottomTab.Screen
             name="ActivityScreen"
             component={ActivityScreen}
             options={{
-              tabBarIcon: ({ color, size }) => (
+              tabBarIcon: () => (
                 <Image
-                        style={[styles.icon, { height: 33, width: 35 }]}
-                        source={config.images.heartIcon} />
+                  style={[styles.icon, { height: 33, width: 35 }]}
+                  source={config.images.heartIcon} />
               ),
-              
+
             }}
           />
           <MainBottomTab.Screen
@@ -102,12 +102,12 @@ const App = () => {
             path="profile"
             component={ProfileScreen}
             options={{
-              tabBarIcon: ({ color, size }) => (
+              tabBarIcon: () => (
                 <Image
-                        style={[styles.icon, { height: 33, width: 35 }]}
-                        source={config.images.profileIcon} />
+                  style={[styles.icon, { height: 33, width: 35 }]}
+                  source={config.images.profileIcon} />
               ),
-              
+
             }}
           />
         </MainBottomTab.Navigator>

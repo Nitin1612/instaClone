@@ -7,6 +7,7 @@ export default {
         searchIcon : require('../../assets/search.png'),
         reelsIcon : require('../../assets/reels.png'),
         profileIcon : require('../../assets/profile.png'),
-        messageIcon : require('../../assets/message.png')
+        messageIcon : require('../../assets/message.png'),
+        ellipsisIcon : require('../../assets/ellipisis.png')
     }
 }
