@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { FlatList, ScrollView, View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import config from "./config/icon";
 import PushNotification from "react-native-push-notification";
-import useColorScheme from "react-native/Libraries/Utilities/useColorScheme";
-import { useScrollToTop } from "@react-navigation/native";
-//import LinearGradient from "react-native-linear-gradient";
 import * as users from '../data/user'
 import InstaStory from "./instaStory";
 class InstaClone extends Component {
@@ -180,4 +177,5 @@ const styles = StyleSheet.create({
 
 
 });
+
 export default InstaClone;

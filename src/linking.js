@@ -7,6 +7,7 @@ const config = {
         ProfileScreen:"profile"
     },
 };
+
 const linking ={
     prefixes :["app://deeplink"],
     config,
