@@ -7,7 +7,6 @@ class SearchScreen extends Component {
     return (
       <View style={styles.container}>
         <Title title="Search Screen" />
-        
       </View>
     );
   }
