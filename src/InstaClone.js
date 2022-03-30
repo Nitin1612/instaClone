@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { FlatList, ScrollView, View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import config from "./config/icon";
 import PushNotification from "react-native-push-notification";
-import * as users from '../data/user'
-import InstaStory from "./instaStory";
+import InstaStories from "./instaStory";
+
 class InstaClone extends Component {
     constructor() {
         super();
@@ -27,9 +27,6 @@ class InstaClone extends Component {
         )
     }
 
-    renderItem2 = (item) => {
-        return <InstaStory name={item.item.name} img={item.item.img} />;
-    };
 
     render() {
         const heartIconColor = this.state.liked ? "red" : null;
@@ -38,19 +35,11 @@ class InstaClone extends Component {
                 <View style={[styles.header]}>
                     <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Instagram</Text>
                     <Image
-                        style={[styles.icon, { height: 28, width: 28, left: 115}]}
+                        style={[styles.icon, { height: 28, width: 28, left: 115 }]}
                         source={config.images.messageIcon} />
                 </View>
                 <ScrollView>
-
-                    <FlatList
-                        data={users.user}
-                        keyExtractor={(item) => item.id.toString()}
-                        renderItem={(item) => this.renderItem2(item)}
-                        horizontal={true}
-                        showsHorizontalScrollIndicator={false}
-                    />
-
+                    <InstaStories />
                     <View style={styles.userBar}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <Image
@@ -174,8 +163,6 @@ const styles = StyleSheet.create({
     icon: {
         marginLeft: 5
     }
-
-
 });
 
 export default InstaClone;

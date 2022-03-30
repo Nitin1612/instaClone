@@ -13,11 +13,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import linking from './src/linking';
 import PushNotification from "react-native-push-notification";
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Icon from 'react-native-vector-icons/Ionicons';
 import config from "./src/config/icon";
-
-Icon.loadFont();
 
 const App = () => {
   const MainBottomTab = createBottomTabNavigator();

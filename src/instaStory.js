@@ -1,28 +1,23 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import InstaStory from 'react-native-insta-story';
+import * as data from '../data/user'
 
-class InstaStory extends Component {
+class InstaStories extends Component {
+
   render() {
+    
     return (
-      <View style={styles.container}>
-        <Image style={styles.img} source={this.props.img} />
-        <Text style={styles.title}>{this.props.name}</Text>
-      </View>
-    );
+      <InstaStory data={data.data}
+        duration={10}
+        customSwipeUpComponent={<View>
+          <Text>Swipe</Text>
+        </View>}
+        style={[styles.title,{backgroundColor:"#fff",marginTop:-5}]} />
+    )
   }
 }
 const styles = StyleSheet.create({
-  container: {
-    width: 85,
-    padding: 5,
-    backgroundColor: "#fff"
-  },
-  img: {
-    height: 70,
-    width: 70,
-    borderRadius: 50,
-    borderColor: "red"
-  },
   title: {
     textAlign: "center",
     fontSize: 12,
@@ -31,4 +26,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default InstaStory;
+export default InstaStories;
