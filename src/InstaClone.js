@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { FlatList, ScrollView, View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
+import { ScrollView, View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import config from "./config/icon";
 import PushNotification from "react-native-push-notification";
-import InstaStories from "./instaStory";
+import Stories from "../components/Stories";
+
 
 class InstaClone extends Component {
     constructor() {
@@ -16,6 +17,7 @@ class InstaClone extends Component {
             liked: !this.state.liked
         });
     }
+
     handleNotification() {
         PushNotification.localNotification(
             {
@@ -34,12 +36,15 @@ class InstaClone extends Component {
             <View style={styles.container}>
                 <View style={[styles.header]}>
                     <Text style={{ fontSize: 25, fontWeight: 'bold' }}>Instagram</Text>
-                    <Image
-                        style={[styles.icon, { height: 28, width: 28, left: 115 }]}
-                        source={config.images.messageIcon} />
+                    <TouchableOpacity
+                        onPress={() => this.props.navigation.navigate("MessageScreen")}>
+                        <Image
+                            style={[styles.icon, { height: 28, width: 28, left: 115 }]}
+                            source={config.images.messageIcon} />
+                    </TouchableOpacity>
                 </View>
                 <ScrollView>
-                    <InstaStories />
+                    <Stories />
                     <View style={styles.userBar}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                             <Image
@@ -111,9 +116,16 @@ class InstaClone extends Component {
                         />
                     </TouchableOpacity>
                     <View style={styles.iconBar}>
-                        <Image
-                            style={[styles.icon, { height: 29, width: 29, tintColor: heartIconColor }]}
-                            source={config.images.heartIcon} />
+                        <TouchableOpacity
+                            activeOpacity={0.7}
+                            onPress={() => {
+                                this.likeToggled();
+                            }}
+                        >
+                            <Image
+                                style={[styles.icon, { height: 29, width: 29, tintColor: heartIconColor }]}
+                                source={config.images.heartIcon} />
+                        </TouchableOpacity>
                         <Image
                             style={[styles.icon, { height: 26, width: 26 }]}
                             source={config.images.commentIcon} />
@@ -136,12 +148,13 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         width: 100 + '%',
-        height: 100 + '%'
+        height: 100 + '%',
+        backgroundColor: "#fff"
     },
     header: {
         width: 100 + '%',
         height: 50,
-        marginTop: 20,
+        marginTop: 10,
         backgroundColor: '#fff',
         justifyContent: "center",
         alignItems: "center",
@@ -158,7 +171,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         marginHorizontal: 7,
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        marginTop: 10
     },
     icon: {
         marginLeft: 5

@@ -9,14 +9,26 @@ import {
   Image
 } from 'react-native';
 import InstaClone from './src/InstaClone';
+import Stories from './components/Stories';
+import Status from './components/Status';
+
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator, } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator} from '@react-navigation/native-stack';
+
+
 import linking from './src/linking';
 import PushNotification from "react-native-push-notification";
 import config from "./src/config/icon";
+import MessageScreen from './src/messageScreen';
+
+
+
+
 
 const App = () => {
   const MainBottomTab = createBottomTabNavigator();
+  const Stack = createNativeStackNavigator();
 
   const createChannel = () => {
     PushNotification.createChannel(
@@ -26,28 +38,27 @@ const App = () => {
       }
     )
   }
-  useEffect(() => {
-    createChannel();
-  }, []);
-  return (
-    <View style={styles.container}>
-      <NavigationContainer linking={linking}>
+
+  const MainScreen =() =>{
+    return(
+      <View style={styles.container}>
+      
         <MainBottomTab.Navigator
-          initialRouteName="InstaClone"
           screenOptions={{ tabBarActiveTintColor: '#e91e63' }}
           tabBarOptions={{
             activeTintColor: '#212121',
             inactiveTintColor: 'grey',
-            showLabel: true,
+            showLabel: false,
             style: {
               backgroundColor: "#fff",
             },
           }}>
 
           <MainBottomTab.Screen
-            name="InstaClone"
+            name="Home"
             component={InstaClone}
             options={{
+              headerShown:false,
               tabBarIcon: () => (
                 <Image
                   style={[styles.icon, { height: 33, width: 35 }]}
@@ -61,6 +72,7 @@ const App = () => {
             name="SearchScreen"
             component={SearchScreen}
             options={{
+              headerShown:false,
               tabBarIcon: () => (
                 <Image
                   style={[styles.icon, { height: 33, width: 35 }]}
@@ -73,6 +85,7 @@ const App = () => {
             name="NewPost"
             component={NewPost}
             options={{
+              headerShown:false,
               tabBarIcon: ({ color, size }) => (
                 <Image
                   style={[styles.icon, { height: 33, width: 35 }]}
@@ -85,6 +98,7 @@ const App = () => {
             name="ActivityScreen"
             component={ActivityScreen}
             options={{
+              headerShown:false,
               tabBarIcon: () => (
                 <Image
                   style={[styles.icon, { height: 33, width: 35 }]}
@@ -98,6 +112,7 @@ const App = () => {
             path="profile"
             component={ProfileScreen}
             options={{
+              headerShown:false,
               tabBarIcon: () => (
                 <Image
                   style={[styles.icon, { height: 33, width: 35 }]}
@@ -107,8 +122,28 @@ const App = () => {
             }}
           />
         </MainBottomTab.Navigator>
-      </NavigationContainer>
     </View>
+
+    );
+  };
+  useEffect(() => {
+    createChannel();
+  }, []);
+  return (
+    <NavigationContainer linking={linking}>
+      <Stack.Navigator
+          screenOptions={{
+          tabBarHideOnKeyboard: true,
+          tabBarShowLabel: false,
+          headerShown: false,
+          tabBarStyle: {
+            height: 50,
+          },
+        }}>
+        <Stack.Screen name="Bottom" component={MainScreen} />
+        <Stack.Screen name="Status" component={Status} />
+      </Stack.Navigator>
+    </NavigationContainer>
   )
 }
 

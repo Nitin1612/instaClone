@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import {View, Text, StyleSheet} from 'react-native';
 import Title from '../components/title';
 
-class SearchScreen extends Component {
+class MessageScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Title title="Message Screen" />
         
       </View>
     );
@@ -17,4 +18,4 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 });
-export default SearchScreen;
+export default MessageScreen;
